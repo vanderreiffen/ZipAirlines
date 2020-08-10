@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('airlines/',include('za_api.urls'))
+    # path('airlines/',include('za_api.urls')),
+    url('api/', include(('airlines.api.urls','airlines'),  namespace='api-airlines'))
 ]
